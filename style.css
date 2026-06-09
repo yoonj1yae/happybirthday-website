@@ -1,0 +1,306 @@
+:root {
+  /* 1. 메인 케이크 */
+  --cake-width: 450px;
+  --cake-left: 50%;
+  --cake-top: 63%;
+
+  /* 2. information icon */
+  --img1-width: 300px;
+  --img1-left: 10%;   
+  --img1-top: 10%;
+
+  /* 3. firebody */
+  --img2-width: 320px;
+  --img2-left: 88%;   
+  --img2-top: 13%;
+
+  /* 4. first fire */
+  --img3-width: 105px;
+  --img3-left: 77%;
+  --img3-top: 20%;    
+
+  /* 5. information */
+  --img4-width: 460px;
+  --img4-left: 13%;
+  --img4-top: 36%;    
+
+  /* 6. firefire */
+  --img5-width: 150px;
+  --img5-left: 75%;
+  --img5-top: 13%; 
+
+  /* 7. cakefire */
+  --img6-width: 450px;
+  --img6-left: 50%;
+  --img6-top: 63%;
+
+  /* 8. finishfire */
+  --img7-width: 115px;
+  --img7-left: 70%;
+  --img7-top: 20%;
+
+  /* 9. wish */
+  --img8-width: 850px;
+  --img8-left: 50%;
+  --img8-top: 20%;
+
+  /* 10. wishing */
+  --img9-width: 850px;
+  --img9-left: 50%;
+  --img9-top: 20%;
+
+  /* 11. c */
+  --img10-width: 270px;
+  --img10-left: 20%;
+  --img10-top: 30%; 
+
+  /* 13. happybirthday */
+  --img12-width: 700px;
+  --img12-left: 50%;
+  --img12-top: 23%;
+
+  /* 14. cakefinish */
+  --img13-width: 450px;
+  --img13-left: 50%;
+  --img13-top: 63%;
+
+  /* 15. b */
+  --img14-width: 450px;
+  --img14-left: 50%;
+  --img14-top: 50%;
+
+  /* 16. 0206 */
+  --img15-width: 150px;
+  --img15-left: 20%;
+  --img15-top: 13%;
+
+  /* 17. f */
+  --img16-width: 350px;
+  --img16-left: 11.5%;
+  --img16-top: 76%;
+}
+
+/* 웹페이지 전체 기본 레이아웃 */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff; 
+  overflow: hidden;
+  position: relative;
+}
+
+/* 모든 이미지의 공통 기본 설정 */
+#first-cake, .custom-img {
+  position: absolute;
+  transform: translate(-50%, -50%); 
+  object-fit: contain;
+}
+
+/* 개별 이미지 변수 매칭 구역 */
+#first-cake {
+  width: var(--cake-width);
+  left: var(--cake-left);
+  top: var(--cake-top);
+}
+
+#sub-img-1 {
+  width: var(--img1-width);
+  left: var(--img1-left);
+  top: var(--img1-top);
+  cursor: pointer; 
+  transition: transform 0.2s ease; 
+}
+
+#sub-img-1:hover {
+  transform: translate(-50%, -50%) scale(1.1); 
+}
+
+#sub-img-2 {
+  width: var(--img2-width);
+  left: var(--img2-left);
+  top: var(--img2-top);
+}
+
+#sub-img-3 {
+  width: var(--img3-width);
+  left: var(--img3-left);
+  top: var(--img3-top);
+  cursor: grab; 
+  user-select: none; 
+  -webkit-user-drag: none; 
+  z-index: 100; 
+}
+
+#sub-img-3.dragging {
+  cursor: grabbing; 
+  transition: none; 
+}
+
+#sub-img-4 {
+  width: var(--img4-width);
+  left: var(--img4-left);
+  top: var(--img4-top);
+  display: none; 
+  z-index: 1000;
+}
+
+#sub-img-5 {
+  width: var(--img5-width);
+  left: var(--img5-left);
+  top: var(--img5-top);
+  display: none; 
+}
+
+#sub-img-6 {
+  width: var(--img6-width);
+  left: var(--img6-left);
+  top: var(--img6-top);
+  display: none; 
+}
+
+#sub-img-7 {
+  width: var(--img7-width);
+  left: var(--img7-left);
+  top: var(--img7-top);
+  display: none; 
+}
+
+#sub-img-8 {
+  width: var(--img8-width);
+  left: var(--img8-left);
+  top: var(--img8-top);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.5s ease;
+}
+
+#sub-img-8.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#sub-img-9 {
+  width: var(--img9-width);
+  left: var(--img9-left);
+  top: var(--img9-top);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.5s ease;
+}
+
+#sub-img-9.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#webcam {
+  position: absolute;
+  bottom: 80px;          
+  left: 80px;        
+  width: 240px;       
+  border-radius: 15px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  transform: scaleX(-1); 
+  z-index: 1000; 
+}
+
+/* 10, 12번 이미지 스타일 (11번 제거됨) */
+#sub-img-10, #sub-img-12 {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.5s ease; 
+}
+
+#sub-img-10.show, #sub-img-12.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#sub-img-10 {
+  width: var(--img10-width);
+  left: var(--img10-left);
+  top: var(--img10-top);
+  z-index: 1000;
+  cursor: pointer;               
+  transition: filter 0.2s ease;   
+}
+
+#sub-img-10:hover {
+  filter: brightness(1.2);
+}
+
+#sub-img-12 {
+  width: var(--img12-width);
+  left: var(--img12-left);
+  top: var(--img12-top);
+}
+
+#sub-img-13 {
+  width: var(--img13-width);
+  left: var(--img13-left);
+  top: var(--img13-top);
+  opacity: 0;                    
+  pointer-events: none;
+  transition: opacity 1.5s ease;  
+}
+
+#sub-img-13.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#sub-img-14 {
+  width: var(--img14-width);
+  left: var(--img14-left);
+  top: var(--img14-top);
+  opacity: 0;                     
+  pointer-events: none;
+  transition: opacity 1.5s ease;  
+  z-index: 1100;                  
+}
+
+#sub-img-14.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#sub-img-15 {
+  width: var(--img15-width);
+  left: var(--img15-left);
+  top: var(--img15-top);
+  display: none; 
+  z-index: 1000; 
+}
+
+#sub-img-16 {
+  width: var(--img16-width);
+  left: var(--img16-left);
+  top: var(--img16-top);
+}
+
+@keyframes flutter {
+  0% { transform: translate(-50%, -50%) translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-50%, -50%) translate(50vw, 20vh) rotate(15deg); }
+  40% { transform: translate(-50%, -50%) translate(65vw, -10vh) rotate(-12deg); }
+  60% { transform: translate(-50%, -50%) translate(30vw, 45vh) rotate(18deg); }
+  80% { transform: translate(-50%, -50%) translate(-10vw, 30vh) rotate(-15deg); }
+  100% { transform: translate(-50%, -50%) translate(0, 0) rotate(0deg); }
+}
+
+#sub-img-10.show {
+  animation: flutter 18s ease-in-out infinite;
+}
+
+body.blurred::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255);
+  z-index: 1050;                               
+  pointer-events: none; 
+}
